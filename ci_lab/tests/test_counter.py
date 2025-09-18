@@ -18,7 +18,7 @@ from http import HTTPStatus
 @pytest.fixture()
 def client():
     """Fixture for Flask test client"""
-    return app.test_client()
+     return app.test_client()
 
 @pytest.mark.usefixtures("client")
 class TestCounterEndpoints:
@@ -34,7 +34,7 @@ class TestCounterEndpoints:
         """It should not allow duplicate counters"""
         client.post('/counters/test_counter')
         response = client.post('/counters/test_counter')
-        assert response.status_code == HTTPStatus.CONFLICT
+         assert response.status_code == HTTPStatus.CONFLICT
 
     def test_retrieve_existing_counter(self, client):
         """It should retrieve an existing counter"""
